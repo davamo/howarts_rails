@@ -3,6 +3,14 @@ lock "~> 3.17.3"
 
 set :application, "myapp"
 set :repo_url, "git@github.com:davamo/howarts_rails.git"
+set :branch, 'main'
+
+set :user, 'deploy'
+set :ssh_options, {
+    forward_agent: true,
+    auth_methods: ['publickey'],
+    keys: ['~/.ssh/aws_devChile.pem']
+}
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -11,12 +19,7 @@ set :repo_url, "git@github.com:davamo/howarts_rails.git"
 # set :deploy_to, "/var/www/my_app_name"
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
-set :user, 'deploy'
-set :ssh_options, {
-    forward_agent: true,
-    auth_methods: ['publickey'],
-    keys: ['~/.ssh/aws_devChile.pem']
-}
+
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
