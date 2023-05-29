@@ -1,20 +1,14 @@
-<h1>Characters</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>House</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @characters.each do |character| %>
-      <tr>
-        <td><%= character.name %></td>
-        <td><%= character.location %></td>
-        <td><%= character.house %></td>
-      </tr>
+<h1>Houses</h1>
+<div class="row">
+      <% @characters.each do |character| %>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= character.house %></h5>
+            <p class="card-text"><%= character.name %></p>
+            <p class="card-text"><%= character.house %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+</div>
