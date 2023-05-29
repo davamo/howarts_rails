@@ -50,17 +50,17 @@ set :keep_releases, 5
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-namespace :deploy do
-    desc "Seed data into the database"
-    task :seed do
-      on roles(:db) do |host|
-        within release_path do
-          with rails_env: fetch(:stage) do
-            execute :rake, "db:seed"
-          end
-        end
-      end
-    end
-  end
+#namespace :deploy do
+#    desc "Seed data into the database"
+#    task :seed do
+#      on roles(:db) do |host|
+#        within release_path do
+#          with rails_env: fetch(:stage) do
+#            execute :rake, "db:seed"
+#          end
+#        end
+#      end
+#    end
+#  end
  
-  after 'deploy:migrate', 'deploy:seed'
+#  after 'deploy:migrate', 'deploy:seed'
